@@ -16,6 +16,11 @@ public class Test01 {
 		
 		byte w = (byte) 257;
 		System.out.println(w);
+		
+		byte a = 11;
+		short b = 50;		
+		int c = a + b ;
+		System.out.println(c);
 	}
 
 }
