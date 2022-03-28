@@ -1,0 +1,30 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-17e68fa72ff-7b25ba5cd4f0cbfd": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "my_javadb.db",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"database": "C:\\Users\\User\\eclipse-workspace\\JavaOCP_20211104\\database\\my_javadb.db",
+				"url": "jdbc:sqlite:C:\\Users\\User\\eclipse-workspace\\JavaOCP_20211104\\database\\my_javadb.db",
+				"type": "dev",
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}
