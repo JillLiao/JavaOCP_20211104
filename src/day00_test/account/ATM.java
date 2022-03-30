@@ -53,11 +53,7 @@ public class ATM {
 				withdraw(operator);
 				break;
 			case 4:// 轉
-				try {
-					transfer(operator);
-				} catch (Exception e) {
-					System.err.println("轉帳失敗，請重新操作。");
-				}
+				transfer(operator);				
 				break;
 			case 5:// 離
 				System.out.println("謝謝光臨，已登出帳戶。");
@@ -76,8 +72,11 @@ public class ATM {
 		System.out.print("請輸入查詢帳號: ");
 		Scanner sc = new Scanner(System.in);
 		String name = sc.next();
+		
+//		↓↓↓↓ java 8 的串流寫法
 		Arrays.stream(acc).filter(a -> a.getName().equals(name))
 			.forEach(a-> System.out.println(a));
+//		↓↓↓↓ java 7 以前的舊方法 ↓↓↓↓
 //		for (int i = 0, lens = acc.length; i < lens; i++) {
 //			if (acc[i].getName().equals(name)) {
 //				System.out.println(acc[i]);
@@ -110,23 +109,20 @@ public class ATM {
 		}
 	}
 
-	public static void transfer(Account operator) throws RuntimeException {
+	public static void transfer(Account operator) {
 		System.out.print("請輸入轉帳帳號: ");
 		Scanner sc = new Scanner(System.in);
 		String toAcc = sc.next();
-		Account tAc= new Account();
-		
-		System.out.print("請輸入轉帳金額: ");
-		int amount = sc.nextInt();
+		Account tAc= new Account();		
 		
 		for (int i = 0, lens = acc.length; i < lens; i++) {
 			if (acc[i].getName().equals(toAcc)) {
 				tAc= acc[i];				
 			}
 		}
-		if(tAc.getName().isEmpty()) {
-			System.out.println("查無此帳戶，請重新操作!");
-		}else {
+		if(tAc.getName() != null) {	
+			System.out.print("請輸入轉帳金額: ");
+			int amount = sc.nextInt();
 			if (operator.getMoney() > amount && amount>0) {
 				int balance = operator.getMoney() - amount;
 				operator.setMoney(balance);
@@ -135,8 +131,10 @@ public class ATM {
 				tAc.setMoney(toBalance);
 				System.out.printf("轉帳成功，已將 $%d 轉至 %s 的帳戶。\n", amount, tAc.getName());
 			}else {
-				System.out.println("輸入金額錯誤，請重新操作!");
+				System.err.println("輸入金額錯誤，請重新操作!");
 			}
+		}else {
+			System.err.println("查無此帳戶，請重新操作!");
 		}
 		
 	}	
