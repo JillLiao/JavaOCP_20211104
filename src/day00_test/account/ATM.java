@@ -57,8 +57,8 @@ public class ATM {
 				break;
 			case 5:// 離
 				System.out.println("謝謝光臨，已登出帳戶。");
-				System.exit(1);
-				break;
+				System.exit(0);	//exit(int status): status 可為0或任意非0值，雖然無論如何都可以關閉JVM，但意思不一樣。
+				break;				//exit(0)表示正常關閉JVM，exit(1)表示異常關閉，通常會放在catch區塊。
 			default:
 				System.err.println("錯誤! 請重新選擇服務項目!");
 				break;
@@ -72,16 +72,21 @@ public class ATM {
 		System.out.print("請輸入查詢帳號: ");
 		Scanner sc = new Scanner(System.in);
 		String name = sc.next();
+		Account searchAccount = new Account();
 		
 //		↓↓↓↓ java 8 的串流寫法
-		Arrays.stream(acc).filter(a -> a.getName().equals(name))
-			.forEach(a-> System.out.println(a));
+//		Arrays.stream(acc).filter(a -> a.getName().equals(name))
+//			.forEach(a-> System.out.println(a));
 //		↓↓↓↓ java 7 以前的舊方法 ↓↓↓↓
-//		for (int i = 0, lens = acc.length; i < lens; i++) {
-//			if (acc[i].getName().equals(name)) {
-//				System.out.println(acc[i]);
-//			}
-//		}
+		for (int i = 0, lens = acc.length; i < lens; i++) {
+			if (acc[i].getName().equals(name)) {
+				System.out.println(acc[i]);
+				searchAccount = acc[i];
+			}
+		}
+		if(searchAccount.getName() == null) {
+			System.err.println("查無此人，請重新操作!");
+		}
 	}
 
 	public static void deposit(Account operator) {
