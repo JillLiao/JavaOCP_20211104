@@ -9,6 +9,9 @@ public class Account {
 		this.name = name;
 		this.money = money;
 	}
+	public Account() {
+		
+	}
 
 	public String getName() {
 		return name;

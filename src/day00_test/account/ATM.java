@@ -1,5 +1,6 @@
 package day00_test.account;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ATM {
@@ -15,6 +16,7 @@ public class ATM {
 			System.out.print("請輸入帳戶名稱: ");
 			Scanner sc = new Scanner(System.in);
 			String name = sc.next();
+			
 			for (int i = 0, lens = acc.length; i < lens; i++) {
 				if (acc[i].getName().equals(name)) {
 					System.out.printf("登入成功! %s歡迎進入系統~\n", name);
@@ -74,11 +76,13 @@ public class ATM {
 		System.out.print("請輸入查詢帳號: ");
 		Scanner sc = new Scanner(System.in);
 		String name = sc.next();
-		for (int i = 0, lens = acc.length; i < lens; i++) {
-			if (acc[i].getName().equals(name)) {
-				System.out.println(acc[i]);
-			}
-		}
+		Arrays.stream(acc).filter(a -> a.getName().equals(name))
+			.forEach(a-> System.out.println(a));
+//		for (int i = 0, lens = acc.length; i < lens; i++) {
+//			if (acc[i].getName().equals(name)) {
+//				System.out.println(acc[i]);
+//			}
+//		}
 	}
 
 	public static void deposit(Account operator) {
@@ -110,26 +114,30 @@ public class ATM {
 		System.out.print("請輸入轉帳帳號: ");
 		Scanner sc = new Scanner(System.in);
 		String toAcc = sc.next();
-
+		Account tAc= new Account();
+		
+		System.out.print("請輸入轉帳金額: ");
+		int amount = sc.nextInt();
+		
 		for (int i = 0, lens = acc.length; i < lens; i++) {
 			if (acc[i].getName().equals(toAcc)) {
-				System.out.print("請輸入轉帳金額	: ");
-				int amount = sc.nextInt();
-
-				if (operator.getMoney() > amount && amount>0) {
-					int balance = operator.getMoney() - amount;
-					operator.setMoney(balance);
-
-					int toBalance = acc[i].getMoney() + amount;
-					acc[i].setMoney(toBalance);
-					System.out.printf("轉帳成功，已將 $%d 轉至 %s 的帳戶。\n", amount, acc[i].getName());
-
-				} 
-			}
-			else {
-				RuntimeException e = new RuntimeException("操作失敗");
-				throw e;
+				tAc= acc[i];				
 			}
 		}
-	}
+		if(tAc.getName().isEmpty()) {
+			System.out.println("查無此帳戶，請重新操作!");
+		}else {
+			if (operator.getMoney() > amount && amount>0) {
+				int balance = operator.getMoney() - amount;
+				operator.setMoney(balance);
+
+				int toBalance = tAc.getMoney() + amount;
+				tAc.setMoney(toBalance);
+				System.out.printf("轉帳成功，已將 $%d 轉至 %s 的帳戶。\n", amount, tAc.getName());
+			}else {
+				System.out.println("輸入金額錯誤，請重新操作!");
+			}
+		}
+		
+	}	
 }
