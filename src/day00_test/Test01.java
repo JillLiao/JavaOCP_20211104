@@ -2,14 +2,14 @@ package day00_test;
 
 public class Test01 {
 	public static void main(String[] args) {
-		int i, j , value;
+		int i, j , value1, value2;
 		i = j = 10;
 		
-		value= ++i * 10;
-		System.out.println("前置運算 i= "+ i +" , " + "value= " + value);
+		value1= ++i * 10;
+		System.out.println("前置運算 i= "+ i +" , " + "value= " + value1);
 		
-		value = j++ * 10;
-		System.out.println("後置運算 j= "+ j +" , " + "value= " + value);
+		value2 = j++ * 10;
+		System.out.println("後置運算 j= "+ j +" , " + "value= " + value2);
 		
 		double x =100.0/0;
 		System.out.println(x);
