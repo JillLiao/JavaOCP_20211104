@@ -4,8 +4,7 @@ public class Test11 {
 
 	public static void main(String[] args) {
 		Object exe = new String("10");
-		Plus(exe);
-		System.out.println("--------------------");
+		
 		System.out.printf("Plus(exe)= %s\n", Plus(exe));
 		//方法運算結果為11，表示運算確實成立且結果順利return回來。
 		//輸出exe內容仍為10，但finally確實執行了，因此判斷java方法為傳值
