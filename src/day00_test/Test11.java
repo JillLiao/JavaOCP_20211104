@@ -50,5 +50,6 @@ public class Test11 {
 		Function_3(str2);
 		System.out.println(str2);
 		//使用了void方法，結果引數為傳值，而非傳址。所以傳值/傳址跟方法是否return應沒有直接關係。
+		//https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/35121/
 	}
 }
