@@ -2,13 +2,13 @@ package day00_test;
 
 public class Test12 {
     public static void main(String[] args) {
-        System.out.println("return value of getValue(): " + getValue());
+        System.out.println("return value of getValue(): " + getValue_1());
         
         System.out.println("-----------------------");
         
-        System.out.println("return value of getValue2():" + getValue2());
+        System.out.println("return value of getValue2():" + getValue_2());
     }
-	public static int getValue() {
+	public static int getValue_1() {
          try {
         	 System.out.println("try...");
         	 throw new Exception();
@@ -20,7 +20,7 @@ public class Test12 {
              return 1;
          }
      }
-	public static int getValue2() {
+	public static int getValue_2() {
 		try {
 			System.out.println("try...");
 			return 0;
