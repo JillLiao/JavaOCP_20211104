@@ -3,28 +3,28 @@ package day00_test;
 public class Test10 {
 	public static void main(String[] args) {
 		int age = 10;
-		int var = age++ - --age + age++;	//result= 0
+		int var = age++ - --age + age++;
 		System.out.printf("var=%d, age=%d\n",var, age);	
 		
 		age = 10;
-		int var2= age++ + age++ ;	//result= -2
+		int var2= age++ + age++ ;
 		System.out.printf("var=%d, age=%d\n",var2, age);
 		
 		age = 10;
-		var2= age++ + ++age + ++age;	//result= -2
+		var2= age++ + ++age + ++age;
 		System.out.printf("var=%d, age=%d\n",var2, age);
 		
 		age = 10;
-		var2= age++ + ++age + ++age + age--;	//result= -2
+		var2= age++ + ++age + ++age + age--;
 		System.out.printf("var=%d, age=%d\n",var2, age);
 		
 		
 		age = 10;
-		int var3= --age - age++;	//result= 0
+		int var3= --age - age++;
 		System.out.printf("var=%d, age=%d\n",var3, age);
 		
 //		age = 10;
-//		age= age++;					//result= 12
+//		age= age++;
 //		System.out.println(age);
 		//System.out.println(plus_(10));
 		System.out.printf("\n");
