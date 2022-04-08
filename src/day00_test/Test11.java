@@ -49,6 +49,6 @@ public class Test11 {
 		String str2 = new String("Hello");
 		Function_3(str2);
 		System.out.println(str2);
-		
+		//使用了void方法，結果引數為傳值，而非傳址。所以傳值/傳址跟方法是否return應沒有直接關係。
 	}
 }
