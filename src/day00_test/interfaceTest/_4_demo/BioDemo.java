@@ -12,6 +12,7 @@ public class BioDemo {
 		Cow cow2 = new Cow();
 		Plant tree1 = new Tree();
 		Tree tree2 = new Tree();
+		Ability cow = new Cow();
 		
 		cow1.reaction();
 		cow1.eat();
@@ -21,6 +22,8 @@ public class BioDemo {
 		cow2.move();
 		cow1.metabolism();
 		Ability.organic();
+		
+		cow.reaction();
 		System.out.println("小牛每個週可長"+Ability.growthUnit+"公斤");
 		
 		System.out.println("-------------------");
