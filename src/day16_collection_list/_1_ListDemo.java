@@ -43,6 +43,7 @@ public class _1_ListDemo {
 		while (iter.hasPrevious()) {	//往前取資料，因此取出的順序會和iter.hasNext()相反
 			System.out.println(iter.previous());
 		}
+		System.out.println(list);
 	}
 
 }
